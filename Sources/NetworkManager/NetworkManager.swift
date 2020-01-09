@@ -1,6 +1,6 @@
 import Foundation
 
-class NetworkManager {
+open class NetworkManager {
     
     @discardableResult
     func request(target: NMTarget, completion: @escaping ((Result<NMResponse, Error>) -> Void)) -> URLSessionDataTask {
