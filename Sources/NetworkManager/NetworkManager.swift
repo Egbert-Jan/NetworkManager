@@ -46,28 +46,28 @@ open class NetworkManager {
     }
 }
 
-open protocol NMTarget {
+public protocol NMTarget {
     var baseUrl: URL { get }
     var path: String { get }
     var method: NMMethod { get }
     var task: NMTask { get }
 }
 
-enum NMMethod: String {
+public enum NMMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
 }
 
-enum NMTask {
+public enum NMTask {
     case plainRequest
     case urlParameters([String: Any])
     case bodyParameters([String: Any])
 //    case bodyAndUrlParameters
 }
 
-open struct NMResponse {
+public struct NMResponse {
     var data: Data
     var response: URLResponse
     
