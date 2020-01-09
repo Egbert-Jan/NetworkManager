@@ -71,7 +71,7 @@ public struct NMResponse {
     public var data: Data
     public var response: URLResponse
     
-    func getDecodedObject<T: Decodable>(object: T.Type) -> T? {
+    public func getDecodedObject<T: Decodable>(object: T.Type) -> T? {
         do {
             return try JSONDecoder().decode(object, from: data)
         } catch {
