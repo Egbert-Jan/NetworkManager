@@ -68,8 +68,8 @@ public enum NMTask {
 }
 
 public struct NMResponse {
-    var data: Data
-    var response: URLResponse
+    public var data: Data
+    public var response: URLResponse
     
     func getDecodedObject<T: Decodable>(object: T.Type) -> T? {
         do {
