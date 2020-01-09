@@ -5,7 +5,7 @@ open class NetworkManager {
     public init() { }
     
     @discardableResult
-    func request(target: NMTarget, completion: @escaping ((Result<NMResponse, Error>) -> Void)) -> URLSessionDataTask {
+    open func request(target: NMTarget, completion: @escaping ((Result<NMResponse, Error>) -> Void)) -> URLSessionDataTask {
 
         var request = URLRequest(url:
             target.baseUrl.appendingPathComponent(target.path))
