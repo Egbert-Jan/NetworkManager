@@ -2,6 +2,8 @@ import Foundation
 
 open class NetworkManager {
     
+    public init() { }
+    
     @discardableResult
     func request(target: NMTarget, completion: @escaping ((Result<NMResponse, Error>) -> Void)) -> URLSessionDataTask {
 
@@ -44,7 +46,7 @@ open class NetworkManager {
     }
 }
 
-protocol NMTarget {
+open protocol NMTarget {
     var baseUrl: URL { get }
     var path: String { get }
     var method: NMMethod { get }
@@ -65,7 +67,7 @@ enum NMTask {
 //    case bodyAndUrlParameters
 }
 
-struct NMResponse {
+open struct NMResponse {
     var data: Data
     var response: URLResponse
     
