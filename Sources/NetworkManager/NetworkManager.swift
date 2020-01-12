@@ -28,15 +28,17 @@ open class NetworkManager {
         }
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            if let data = data, let response = response {
-                completion(.success(NMResponse(data: data, response: response)))
-            } else {
-                completion(.failure(NMError.emptyResponseOrData))
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                if let data = data, let response = response {
+                    completion(.success(NMResponse(data: data, response: response)))
+                } else {
+                    completion(.failure(NMError.emptyResponseOrData))
+                }
             }
         }
         
